@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 import '../Products/Products.css'
 import foo from '../../assets/images/images (1).jpg'
 
+
+//products
 class Products extends React.Component{
     constructor(props){
         super(props)
