@@ -1,0 +1,159 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background: #E5EDF5;
+            
+}
+
+/* .box-container{
+    background:  #E5EDF5;
+
+} */
+
+.table{
+    font-size: 16px;
+    color: #404040;
+    width: 85%;
+    text-align: center;
+    border-collapse: collapse;
+    justify-content: center;
+    
+}
+
+
+
+.table thead th{
+    padding-bottom: 15px;
+    background: #E5EDF5;
+   
+
+}
+
+.table thead{
+    border-bottom: 1px solid black ;
+}
+.table tbody .body-tr{
+    padding: 20px;
+    border-bottom: 5px solid #E5EDF5;
+    height: 50px;
+    background-color: #fff;
+}
+
+.table td a{
+    color: black;
+}
+
+#sort{
+    height: 35px;
+    background: #fff;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #c6c6c6;
+    color: #8D8D8D;
+    margin-right: 145px;
+}
+
+.label option{
+    padding: 15px;
+}
+.products{
+    background: #E5EDF5;
+
+}
+
+.main-div{
+    display: flex;
+    justify-content: center;
+}
+
+.products-div h3{
+    margin-left: 140px;
+}
+
+.products-div{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav{
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.left-div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.right-div{
+    display: flex;
+    align-items: center;
+    margin-right: 180px; 
+}
+
+.user-photo{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.user-name{
+    font-size: 16px;
+    color: #4D4D4D;
+    margin-left: 15px;
+}
+.buttons{
+    font-size: 15px;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #576574;
+    font-weight: bold;
+    color: #576574;
+
+ 
+}
+
+#products-button{
+    border-color: #1DD1A1;
+    color: #1DD1A1;
+    height: 35px;
+   
+    margin-left: 80px;
+}
+
+#expenses-button{
+    height: 35px;
+    margin-left: 10px;
+}
+
+.newproduct-button{
+    position: fixed;
+    bottom: 130px;
+    right: 155px;
+    font-size: 15px;
+    height: 50px;
+    background: #576574;
+    border-radius: 5px;
+    width: 180px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 550;
+    padding: 0px 10px;
+    border: none;
+
+}
+
+#empty-td{
+    height: 12px;
+    background-color: inherit;
+
+}
