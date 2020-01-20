@@ -20,12 +20,12 @@ render() {
             <div className="box-container" id="login2">
             <form>
                 <p className="input-container">
-                    <label className="text-field-input" for="">E-mail</label>
+                    <label className="text-field-input" htmlFor="">E-mail</label>
                     <input type="text" className="text-field"/>
 
                 </p>
                 <p className="input-container">
-                    <label className="text-field-input" for="">Password</label>
+                    <label className="text-field-input" htmlFor="">Password</label>
                     <input type="password" className="text-field"/>
                 </p>
                 <button type="button" className="primary-button">Sign in</button>
