@@ -16,8 +16,7 @@ class RegisterCom extends React.Component{
             date_of_birth:'',
             telephone:'',
             country:'',
-            password:'',
-            submitted: false
+            password:''
         };
     }
 
@@ -56,7 +55,7 @@ class RegisterCom extends React.Component{
 							<p className="input-container">
 								<label className="text-field-input">
 									Date of Birth
-									<input type="text" className="text-field" onChange={this.handleChange}/>	
+									<input type="date" className="text-field" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<p className="input-container">
@@ -107,4 +106,3 @@ const mapDispatchToProps = (dispatch) => {
 const Register = connect(mapStateToProps, mapDispatchToProps)(RegisterCom);
 
 export default Register;
-
