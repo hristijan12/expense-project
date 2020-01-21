@@ -16,16 +16,16 @@ export const registerUser = (data) => {
     return (dispatch) => {
         dispatch(registerUserLoading());
         fetch(
-            '',
+            '/api/v1/auth/register', {mode: 'no-cors'},
             {
                 'method': 'POST',
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
                 'body': JSON.stringify(data)
             }
-        ). then(res => {
+        ).then(res => {
             // dispatch(registerUserSuccess(res));
             dispatch(registerUserSuccess(data));
-        })
+        })  
         .catch(err => {
             dispatch(registerUserFailed());
         });
@@ -57,15 +57,15 @@ export const registerReducer = (state = initialState, action) => {
     switch(action.type) {
         case REGISTER_SUCCESS:
             return {...state, registerLoading: false, registerFailed: false};
-        break;
+        
         case REGISTER_FAILED:
             return {...state, registerLoading: false, registerFailed: true};
-        break;
+        
         case REGISTER_LOADING:
             return {...state, registerLoading: true, registerFailed: false};
-        break;
+       
         default: 
             return state;
-        break;
+        
     }
 }
