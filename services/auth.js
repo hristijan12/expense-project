@@ -5,6 +5,7 @@ const config = require('../config/index.js');
 const db = require('../db/connection');
 const auth = require('../handlers/auth');
 const path = require('path');
+var cors = require('cors');
 
 db.init(config.getConfig('db'));
 
@@ -19,6 +20,7 @@ api.use('/public', express.static(pub));
 // only for testing purposes
 // //////////////////////////
 api.use(bodyParser.json());
+api.use(cors());
 api.use(
     jwt(
         {secret: config.getConfig('jwt').key}

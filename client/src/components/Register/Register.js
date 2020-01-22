@@ -20,8 +20,8 @@ class RegisterCom extends React.Component{
         };
     }
 
-    onChange = e => {
-        this.setState({ [e.target.id]: e.target.value });
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
 	};
 	
 	onRegisterClick = () => {
@@ -37,43 +37,43 @@ class RegisterCom extends React.Component{
 							<p className="input-container">
 								<label className="text-field-input">
 									First Name
-									<input type="text" className="text-field" onChange={this.handleChange}/>
+									<input type="text" className="text-field" name="first_name" onChange={this.handleChange}/>
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Last Name
-									<input type="text" className="text-field" onChange={this.handleChange}/>
+									<input type="text" className="text-field" name="last_name" onChange={this.handleChange}/>
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Email
-									<input type="text" className="text-field" onChange={this.handleChange}/>	
+									<input type="text" className="text-field" name="email" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Date of Birth
-									<input type="date" className="text-field" onChange={this.handleChange}/>	
+									<input type="date" className="text-field" name="date_of_birth" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Telephone
-									<input type="text" className="text-field" onChange={this.handleChange}/>	
+									<input type="text" className="text-field" name="telephone" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Country
-									<input type="text" className="text-field" onChange={this.handleChange}/>	
+									<input type="text" className="text-field" name="country" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<p className="input-container">
 								<label className="text-field-input">
 									Password
-									<input type="password" className="text-field" onChange={this.handleChange}/>	
+									<input type="password" className="text-field" name="password" onChange={this.handleChange}/>	
 								</label>
 							</p>
 							<button type="button" className="primary-button" onClick={this.onRegisterClick}>Register</button>

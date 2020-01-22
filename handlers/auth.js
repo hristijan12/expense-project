@@ -7,6 +7,7 @@ const config = require('../config/index.js');
 
 
 const register = (req, res) => {
+    console.log(req.body);
     var v = new validator.Validator(req.body, vUsers.createUser)
     v.check()
     .then(matched => {

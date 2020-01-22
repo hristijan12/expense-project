@@ -13,14 +13,17 @@ const initialState = {
 
 // thunk action
 export const registerUser = (data) => {
+    console.log(data);
     return (dispatch) => {
         dispatch(registerUserLoading());
         fetch(
-            'http://localhost:8001/api/v1/auth/register', {mode: 'no-cors'},
+            'http://localhost:8001/api/v1/auth/register',
             {
                 'method': 'POST',
-                'Content-Type': 'application/json',
-                'body': JSON.stringify(data)
+                'body': JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
         ).then(res => {
             // dispatch(registerUserSuccess(res));

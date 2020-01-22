@@ -10,20 +10,25 @@ const initialState = {
     productData: [],
     productLoading: false,
     productFailed: false
-  };
+};
 
+// thunk action
 export const addProduct = (data) => {
     return (dispatch) => {
         dispatch(addProductLoading());
         fetch(
-            'http://localhost:8000/api/v1/products/', {mode: 'no-cors'},
+            'http://localhost:8000/api/v1/products/', 
             {
                 'method': 'POST',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-                'body': JSON.stringify(data)
+                'body': JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+                }
             }
-        ).then(res => {
+        )
+        .then(res => res.json())
+        .then(data => {
             dispatch(addProductSuccess(data));
         })
         .catch(err => {
@@ -33,21 +38,21 @@ export const addProduct = (data) => {
 }
 
 //actions
-
 export const addProductLoading = () => {
-    return{
+    return {
         type: PRODUCT_LOADING
     }
 }
 
-export const addProductSuccess = () => {
-    return{
-        type: PRODUCT_SUCCESS
+export const addProductSuccess = (data) => {
+    return {
+        type: PRODUCT_SUCCESS,
+        payload: data
     }
 }
 
 export const addProductFailed = () => {
-    return{
+    return {
         type: PRODUCT_FAILED
     }
 }
