@@ -16,7 +16,7 @@ export const registerUser = (data) => {
     return (dispatch) => {
         dispatch(registerUserLoading());
         fetch(
-            '/api/v1/auth/register', {mode: 'no-cors'},
+            'http://localhost:8001/api/v1/auth/register', {mode: 'no-cors'},
             {
                 'method': 'POST',
                 'Content-Type': 'application/json',

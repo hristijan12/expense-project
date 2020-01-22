@@ -16,7 +16,7 @@ class RegisterCom extends React.Component{
             date_of_birth:'',
             telephone:'',
             country:'',
-            password:''
+            password:'' 
         };
     }
 
