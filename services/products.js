@@ -4,12 +4,14 @@ var jwt = require('express-jwt');
 const config = require('../config/index.js');
 const DBConn = require('../db/connection');
 const products = require('../handlers/products');
+var cors = require('cors');
 
 var c = config.getConfig("db");
 
 DBConn.init(c);
 const api = express();
 api.use(bodyParser.json());
+api.use(cors());
 api.use(
     jwt(
         {secret: config.getConfig('jwt').key}

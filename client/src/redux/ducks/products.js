@@ -14,6 +14,7 @@ const initialState = {
 
 // thunk action
 export const addProduct = (data) => {
+    console.log(data);
     return (dispatch) => {
         dispatch(addProductLoading());
         fetch(
