@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {loginUser} from '../../redux/ducks/login'
-import {Link} from 'react-router-dom'
-import './shared.css'
+import {loginUser} from '../../redux/ducks/login';
+import {Link} from 'react-router-dom';
+import './shared.css';
 
 
 class LoginCom extends React.Component{
@@ -24,22 +24,32 @@ class LoginCom extends React.Component{
 
     onLoginClick = () => {
 		this.props.loginUser(this.state);
-	}
+    }
+    
+    // redirectToMain = () => {
+    //     if (this.state.signed) {
+    //         return <Redirect to='/products' />
+    //     }
+    // }
 
     render() {
         return(
         <React.Fragment>
             <div id="login">
                 <div className="box-container" id="login2">
-                <  form>
+                <form>
                 <p className="input-container">
-                    <label className="text-field-input" name='email' onChange={this.handleChange}>E-mail</label>
-                    <input type="text" className="text-field"/>
+                    <label className="text-field-input">
+                        Email
+                    <input type="text" className="text-field" name="email" onChange={this.handleChange}/>
+                    </label>
 
                 </p>
                 <p className="input-container">
-                    <label className="text-field-input" name='password' onChange={this.handleChange}>Password</label>
-                    <input type="password" className="text-field"/>
+                    <label className="text-field-input">
+                        Password
+                    <input type="password" className="text-field" name="password" onChange={this.handleChange}/>
+                    </label>
                 </p>
                 <button type="button" className="primary-button" onClick={this.onLoginClick}>Sign in</button>
 

@@ -29,7 +29,8 @@ export const loginUser = (data) => {
         )
         .then(res => res.json())
         .then(data => {
-            
+            localStorage.setItem('jwt', JSON.stringify(data));
+            console.log(data)
             dispatch(loginUserSuccess(data));
         })  
         .catch(err => {

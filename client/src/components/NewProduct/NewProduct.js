@@ -20,8 +20,8 @@ class NewProductCom extends React.Component{
     }
 
 
-    onChange = e => {
-        this.setState({ [e.target.id]: e.target.value });
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
     };
     
     onProductClick = () => {
@@ -45,29 +45,34 @@ class NewProductCom extends React.Component{
                     <div className="left2-div">
                         <form>
                             <p className="input-container-product">
-                                <label className="text-field-input-product" >Product Name</label>
-                                <input type="text" className="text-field-product"/>
-        
+                                <label className="text-field-input-product" >
+                                    Product Name
+                                    <input type="text" className="text-field-product" name="name" onChange={this.handleChange}/>
+                                    </label>
                             </p>
                             <p className="input-container-product">
-                                <label className="text-field-input-product" >Product Description</label>
-                                <input type="text" className="text-field-product"/>
-        
+                                <label className="text-field-input-product" >
+                                    Product Description
+                                    <input type="text" className="text-field-product" name="description" onChange={this.handleChange}/>
+                                    </label>
                             </p>
                             <p className="input-container-product">
-                                <label className="text-field-input-product" >Product Type</label>
-                                <input type="text" className="text-field-product"/>
-        
+                                <label className="text-field-input-product" >
+                                    Product Type
+                                    <input type="text" className="text-field-product" name="type" onChange={this.handleChange}/>
+                                    </label>
                             </p>
                             <p className="input-container-product">
-                                <label className="text-field-input-product" >Purchase Date</label>
-                                <input type="date" className="text-field-product"/>
-        
+                                <label className="text-field-input-product" >
+                                    Purchase Date
+                                    <input type="date" className="text-field-product" name="date" onChange={this.handleChange}/>
+                                    </label>
                             </p>
                             <p className="input-container-product">
-                                <label className="text-field-input-product" >Product Price</label>
-                                <input type="text" className="text-field-product"/>
-        
+                                <label className="text-field-input-product" >
+                                    Product Price
+                                    <input type="text" className="text-field-product" name="price" onChange={this.handleChange}/>
+                                    </label>
                             </p>
 
                             <button type="button" className="primary-button-product" onClick={this.onProductClick}>Create product</button>    

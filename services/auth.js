@@ -6,7 +6,7 @@ const db = require('../db/connection');
 const auth = require('../handlers/auth');
 const path = require('path');
 var cors = require('cors');
-const jwks = require('jwks-rsa');
+
 
 db.init(config.getConfig('db'));
 
