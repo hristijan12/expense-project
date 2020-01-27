@@ -51,7 +51,7 @@ const login = (req, res) => {
                     email: data.email
                 };
                 var token = jwt.sign(tokenData, config.getConfig('jwt').key);
-                return res.status(200).send({jwt: token});
+                return res.status(200).send({jwt: token, signed: true});
             }
             return res.status(404).send('not found');
         });

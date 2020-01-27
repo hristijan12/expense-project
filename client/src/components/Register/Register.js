@@ -5,6 +5,8 @@ import {registerUser} from '../../redux/ducks/register';
 import '../../assets/css/shared.css'
 import '../Register/Register.css'
 
+// import {Redirect} from 'react-router-dom'
+
 class RegisterCom extends React.Component{
     constructor(props){
 		super(props);

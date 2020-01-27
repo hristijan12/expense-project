@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {loginUser} from '../../redux/ducks/login';
 import {Link} from 'react-router-dom';
 import './shared.css';
-
+import {Redirect} from 'react-router-dom'
 
 class LoginCom extends React.Component{
     constructor(props){
@@ -23,18 +23,20 @@ class LoginCom extends React.Component{
 
 
     onLoginClick = () => {
-		this.props.loginUser(this.state);
+        this.props.loginUser(this.state);
     }
     
-    // redirectToMain = () => {
-    //     if (this.state.signed) {
-    //         return <Redirect to='/products' />
-    //     }
-    // }
+    redirectToMain = () => {
+        if (this.props.userSigned) {
+            return <Redirect to='/products' />
+        }
+    }
 
     render() {
+        console.log(this.props)
         return(
         <React.Fragment>
+            {this.redirectToMain()}
             <div id="login">
                 <div className="box-container" id="login2">
                 <form>
@@ -67,9 +69,11 @@ class LoginCom extends React.Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
 	return {
-		loginLoading: state.loginLoading,
-		loginFailed: state.loginFailed
+		loginLoading: state.loginReducer.loginLoading,
+        loginFailed: state.loginReducer.loginFailed,
+        userSigned: state.loginReducer.userSigned
 	};
 };
 
