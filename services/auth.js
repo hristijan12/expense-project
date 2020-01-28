@@ -37,13 +37,13 @@ api.post('/api/v1/auth/login', auth.login);
 
 
 
-api.use(function (err, req, res, next) {
-    if (err.name === 'UnauthorizedError') {
-        res.status(401).send({message: 'Invalid token'});
-    } else {
-        next(err);
-    }
-});
+// api.use(function (err, req, res, next) {
+//     if (err.name === 'UnauthorizedError') {
+//         res.status(401).send({message: 'Invalid token'});
+//     } else {
+//         next(err);
+//     }
+// });
 
 api.listen(8001, err => {
     if(err){

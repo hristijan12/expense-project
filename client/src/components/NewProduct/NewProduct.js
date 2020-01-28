@@ -27,6 +27,7 @@ class NewProductCom extends React.Component{
     onProductClick = () => {
         this.props.addProduct(this.state)
     }
+    
     render() {
         return(
         <React.Fragment>
