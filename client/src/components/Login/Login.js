@@ -26,12 +26,8 @@ class LoginCom extends React.Component{
 		this.props.loginUser(this.state);
     }
     
-    // redirectToMain = () => {
-    //     if (this.state.signed) {
-    //         return <Redirect to='/products' />
-    //     }
-    // }
-
+    
+    
     render() {
         return(
         <React.Fragment>
