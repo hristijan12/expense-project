@@ -117,6 +117,8 @@ html, body{
 
 .products-div h3{
     margin-left: 110px;
+    color: black;
+    font-weight: 750;
 }
 
 .products-div{
@@ -137,6 +139,7 @@ html, body{
     font-size: 16px;
     color: #404040;
     width: 85%;
+    margin-top: 20px;
     text-align: center;
     border-collapse: collapse;
     justify-content: center;
