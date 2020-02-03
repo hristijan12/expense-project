@@ -3,20 +3,36 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 import '../Products/Products.css'
-
+import {getProductsFailed, getProductsSuccess, getProductsLoading} from '../../redux/ducks/getproducts';
+import getProductsAction from '../../redux/ducks/getproducts'
 
 
 //products
 class Products extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
+
+        this.shouldComponentRender = this.shouldComponentRender.bind(this);
         
-        };
+    }
+
+    componentWillMount() {
+        const {getProducts} = this.props;
+        getProducts();
+    }
+
+    shouldComponentRender() {
+        const {getproductsLoading} = this.props;
+        if(this.getproductsLoading === false) return false;
+        // more tests
+        return true;
     }
 
 
+
     render(){
+        const {getproductsData, getproductsFailed, getproductsLoading} = this.props;
+        if(!this.shouldComponentRender()) 
         return(
             <React.Fragment>
             <this.props.header/>
@@ -45,4 +61,16 @@ class Products extends React.Component{
     }
 }
 
-export default Products
+const mapStateToProps = state => ({
+    productsFailed: getProductsError(state),
+    productsData: getProducts(state),
+    productsLoading: getProductsLoading(state)
+})
+
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getProducts: getProductsAction
+}, dispatch)
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (Products) ;

@@ -9,7 +9,8 @@ import {logger} from 'redux-logger'
 const rootReducer = combineReducers({
     registerReducer,
      loginReducer,   
-    addProductReducer
+    addProductReducer,
+    //getProductsReducer
 })
 
 const store = createStore(
