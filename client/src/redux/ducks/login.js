@@ -31,7 +31,10 @@ export const loginUser = (data) => {
         )
         .then(res => res.json())
         .then(data => {
-            localStorage.setItem('jwt', JSON.stringify(data));
+            console.log(data.jwt)
+            localStorage.setItem('jwt', data.jwt)
+         
+            //localStorage.setItem('jwt', JSON.stringify(data));
             console.log(data)
             dispatch(loginUserSuccess(data));
             dispatch(userLogged(data.signed))
@@ -45,6 +48,7 @@ export const loginUser = (data) => {
 
 // actions
 export const loginUserLoading = () => {
+    console.log("Loginuserloading")
     return {
         type: LOGIN_LOADING
     }

@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
-import { getProducts } from '../../redux/ducks/getproducts'
 import '../Products/Products.css'
 
 
@@ -14,16 +12,16 @@ import '../Products/Products.css'
 class Products extends React.Component{
     constructor(props){
         super(props)
-
-       
-        
+        this.state = {
+            products: []
+        }
     }
 
 
-
+  
 
     render(){
-
+        console.log(this.props)
         return(
             <React.Fragment>
             <this.props.header/>
@@ -36,7 +34,6 @@ class Products extends React.Component{
                             <option>Last Purchase</option>
                             <option>Highest Price</option>
                             <option>Lowest Price</option>
-                            
                         </select>            
                     </label>
                 </div>        
@@ -54,18 +51,17 @@ class Products extends React.Component{
 
 const mapStateToProps = (state) => {
 	return {
-		productsLoading: state.productsLoading,
-		productsFailed: state.productsFailed
+        products: state.data
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getProducts: (data) => {
-			return dispatch(getProducts(data))
-		}
-	}
-};
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+//         getProducts: (data) => {
+// 			return dispatch(getProducts(data))
+// 		}
+// 	}
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps) (Products) ;
+export default connect(mapStateToProps) (Products) ;

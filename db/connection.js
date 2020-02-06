@@ -7,7 +7,6 @@ const init = (config) => {
         {useNewUrlParser: true, useUnifiedTopology: true}
     )
     .then(res => {
-        console.log(res);
         console.log('CONNECTED TO DATABASE');
     })
     .catch(err => {

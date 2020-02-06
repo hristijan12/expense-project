@@ -18,7 +18,7 @@ const Product = mongoose.model(
 
 const getAll = (q, sort) => {
     return new Promise((success, fail) => {
-        Film.find(q, {}, {sort: sort}, (err, data) => {
+        Product.find(q, {}, {sort: sort}, (err, data) => {
             if(err){
                 return fail(err);
             }
@@ -29,7 +29,7 @@ const getAll = (q, sort) => {
 
 const getOne = (id, userID) => {
     return new Promise((success, fail) => {
-        Film.find({_id: id, user_id: userID}, (err, data) => {
+        Product.find({_id: id, user_id: userID}, (err, data) => {
             if(err){
                 return fail(err);
             }

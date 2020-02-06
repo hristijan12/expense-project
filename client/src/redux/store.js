@@ -6,12 +6,13 @@ import {getProductsReducer} from '../redux/ducks/getproducts';
 import {loginReducer} from './ducks/login';
 import {applyMiddleware} from 'redux'
 import {logger} from 'redux-logger'
-
+import { reducer } from './ducks/reducers/reducer'
 const rootReducer = combineReducers({
     registerReducer,
-     loginReducer,   
+    loginReducer,   
     addProductReducer,
-    getProductsReducer
+    getProductsReducer,
+    reducer
     
 })
 

@@ -10,32 +10,47 @@ const initialState = {
     productsFailed: false
 };
 
-
-// thunk action
 export const getProducts = (data) => {
-    console.log(data);
-    return (dispatch) => {
-        dispatch(getProductsLoading());
-        fetch(
-            'http://localhost:8000/api/v1/products/', 
-            {
-                'method': 'GET',
-                'body': JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-                }
-            }
-        )
-        .then(res => res.json())
-        .then(data => {
-            dispatch(getProductsSuccess(data));
-        })
-        .catch(err => {
-            dispatch(getProductsFailed())
-        })
+    console.log(data)
+      return {
+          type: GETPRODUCTS_SUCCESS,
+          payload: data
+      }
     }
-}
+    
+
+//thunk action
+// export const getProducts = (data) => {
+//    return (dispatch) => {
+//         dispatch(getProductsLoading());
+//         fetch(
+//             'http://localhost:8000/api/v1/products/', 
+//             {
+//                 'method': 'GET',
+//                 'body': data,
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+//                 }
+//             }
+//         )
+//         .then((res) => {
+//             console.log("ENTERED FIRST THEN");
+//             console.log(res)
+//             dispatch(getProductsSuccess(res))
+//         } )
+//         // .then((data) => {
+//         //     console.log("ENTERED SECOND THEN")
+//         //     console.log(data)
+//         //     ;
+//         // })
+//         .catch((err) => {
+//             console.log("ERRR")
+//             console.log(err)
+//             dispatch(getProductsFailed())
+//         })
+//     }
+// }
 
 //actions
 export const getProductsLoading = () => {
@@ -45,6 +60,7 @@ export const getProductsLoading = () => {
 }
 
 export const getProductsSuccess = (data) => {
+    console.log(data)
     return {
         type: GETPRODUCTS_SUCCESS,
         payload: data
@@ -59,9 +75,11 @@ export const getProductsFailed = () => {
 
 // reducer
 export const getProductsReducer = (state = initialState, action) => {
+    console.log(state)
     switch(action.type) {
         case GETPRODUCTS_SUCCESS:
-            return {...state, productsLoading: false, productsFailed: false};
+            console.log(action.payload)
+            return {...state, productsLoading: false, productsFailed: false, productsData: action.payload};
         
         case GETPRODUCTS_FAILED:
             return {...state, productsLoading: false, productsFailed: true};

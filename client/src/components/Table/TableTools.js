@@ -6,9 +6,9 @@ const TableTools = (props) =>{
     return (
         <td>
             <Link to="/edit-product">
-                <button id="edit-button"><i className="far fa-edit"></i></button>
+                <button id="edit-button" onClick={props.editProduct}><i className="far fa-edit"></i></button>
             </Link>
-                <button id="delete-button"><i className="far fa-trash-alt"></i></button>
+                <button id="delete-button" onClick={props.deleteProduct }><i className="far fa-trash-alt"></i></button>
         </td>
     )
 }

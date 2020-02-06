@@ -4,6 +4,7 @@ const getAll = (req, res) => {
 
     console.log(req.query);
     let q = {};
+    q.user_id = req.user.id;
     let sort = {};
 
 
@@ -42,6 +43,7 @@ const getAll = (req, res) => {
 const getOne = (req, res) => {
     mProducts.getOne(req.params.id, req.user.id)
     .then(data => {
+
         res.status(200).send(data);
     })
     .catch(err => {

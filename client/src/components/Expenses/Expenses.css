@@ -26,17 +26,6 @@ html, body{
     margin-right: 180px; 
 }
 
-.buttons{
-    font-size: 15px;
-    background: transparent;
-    border: 2px solid;
-    border-radius: 5px;
-    border-color: #576574;
-    font-weight: bold;
-    color: #576574;
-
- 
-}
 
 #products-button{
     border-color: #1DD1A1;
@@ -62,21 +51,7 @@ html, body{
     margin-left: 15px;
 }
 
-#month-button{
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #1DD1A1;
-    color: #fff;
-    border-style: none;
-    border-radius: 5px;
-    text-transform: uppercase;
-    height: 60px;
-    width: 130px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.17);
-    margin-left: 110px;
-}
-
-#year-button{
+.select-btns {
     font-size: 15px;
     font-weight: bold;
     background-color: #C9E5DD;
@@ -88,6 +63,16 @@ html, body{
     width: 130px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.17);
 }
+
+.active-btn {
+    background: #1DD1A1;
+}
+
+ 
+#month-button{
+    margin-left: 110px;
+}
+
 .tabs-div{
     /* font-family: 'Roboto', sans-serif; */
     display: flex;
