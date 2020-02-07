@@ -3,14 +3,15 @@ const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGIN_FAILED = "LOGIN_FAILED";
 const LOGIN_LOADING = "LOGIN_LOADING";
 const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
-
+const SAVE_USER_NAME = "SAVE_USER_NAME"
 // initial state
 
 const initialState = {
     loginData: {},
     loginLoading: false,
     loginFailed: false,
-    userSigned: false
+    userSigned: false,
+    userName: ''
 };
 
 // thunk action
@@ -33,7 +34,12 @@ export const loginUser = (data) => {
         .then(data => {
             console.log(data.jwt)
             localStorage.setItem('jwt', data.jwt)
-         
+            localStorage.setItem('first_name', data.first_name);
+            console.log(data.first_name)
+            localStorage.setItem('last_name', data.last_name);
+            const name = data.first_name + ' ' + data.last_name
+            console.log(name)
+            dispatch(saveUserName(name))
             //localStorage.setItem('jwt', JSON.stringify(data));
             console.log(data)
             dispatch(loginUserSuccess(data));
@@ -75,6 +81,13 @@ export const userLogged = (bool) => {
     }
 }
 
+export const saveUserName = (name) => {
+    return {
+        type: SAVE_USER_NAME,
+        userName: name
+    }
+}
+
 
 // reducer
 export const loginReducer = (state = initialState, action) => {
@@ -93,6 +106,10 @@ export const loginReducer = (state = initialState, action) => {
         return {
             ...state, userSigned: action.payload
         }
+        case SAVE_USER_NAME: 
+            return { ...state, userName: action.userName }
+    
+        
         default: 
             return state;
         

@@ -46,18 +46,7 @@ html,body{
 
  
 }
-#products-button{
-    border-color: #1DD1A1;
-    color: #1DD1A1;
-    height: 35px;
-   
-    margin-left: 80px;
-}
 
-#expenses-button{
-    height: 35px;
-    margin-left: 10px;
-}
 .new-product-div h3{
     color: black;
     margin-left: 100px;

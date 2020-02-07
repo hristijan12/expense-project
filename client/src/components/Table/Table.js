@@ -1,9 +1,8 @@
 import React from 'react'
 
 import './Table.css'
-import TabelRow from './TableRow';
+import TableRow from './TableRow';
 import TableTools from './TableTools'
-
 import store from '../../redux/store'
 import axios from 'axios'
 import { connect } from 'react-redux';
@@ -13,7 +12,7 @@ import { getProducts } from '../../redux/ducks/getproducts'
 class Table extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
+        this.state = {  
             products: []
         };    
     }
@@ -36,18 +35,20 @@ class Table extends React.Component{
             console.log(err);
         })         
       }
-   
     
+
 
         render() {
             const trs = this.props.products.map((product, i) => {
-                return (<TabelRow key={product + i} name={product.name}
+                return (<TableRow key={product + i} name={product.name}
                     description={product.description}
                     type={product.type}
                     date={product.date}
                     price={product.price}
                     tableTools={TableTools}/>)
             })
+
+
             return(
                 <React.Fragment>
                     
@@ -70,7 +71,9 @@ class Table extends React.Component{
                                 {trs}
                             </tbody>
                         </table>
+                        
                     </div>
+                
                 </React.Fragment>
             )
         }

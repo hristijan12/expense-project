@@ -125,7 +125,7 @@ html, body{
  
 }
 
-#products-button{
+/* #products-button{
     border-color: #1DD1A1;
     color: #1DD1A1;
     height: 35px;
@@ -136,7 +136,7 @@ html, body{
 #expenses-button{
     height: 35px;
     margin-left: 10px;
-}
+} */
 
 .newproduct-button{
     position: fixed;

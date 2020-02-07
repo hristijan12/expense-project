@@ -1,6 +1,7 @@
 
 const initState = {
-    expensesClicked: false
+    expensesClicked: false,
+   
 }
 
 export function reducer(state = initState, action){
@@ -9,6 +10,7 @@ export function reducer(state = initState, action){
             return { ...state, expensesClicked: action.expensesClicked}
             }
             default:
-                return state    
+                return state 
         }   
-    }
+        
+    }   

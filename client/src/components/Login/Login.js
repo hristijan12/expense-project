@@ -73,14 +73,15 @@ const mapStateToProps = (state) => {
 	return {
 		loginLoading: state.loginReducer.loginLoading,
         loginFailed: state.loginReducer.loginFailed,
-        userSigned: state.loginReducer.userSigned
+        userSigned: state.loginReducer.userSigned,
+        userName: state.userName
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loginUser: (data) => {
-			return dispatch(loginUser(data))
+		loginUser: (data, name) => {
+			return dispatch(loginUser(data, name))
 		}
 	}
 };

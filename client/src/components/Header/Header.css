@@ -1,4 +1,4 @@
-.header-buttons{
+.nav-btns{
     font-size: 15px;
     background: transparent;
     border: 2px solid;
@@ -6,4 +6,10 @@
     border-color: #576574;
     font-weight: bold;
     color: #576574;
+}
+
+
+.active-nav-btn {
+    border-color: #1DD1A1;
+    color: #1DD1A1;
 }
