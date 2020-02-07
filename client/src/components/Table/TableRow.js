@@ -1,10 +1,11 @@
 import React from 'react'
 
+import './Table.css'
 import { connect } from 'react-redux'
 
 const TableRow = (props) => {
     return(
-        <tr>
+        <tr className="body-tr">
             <td>{props.name}</td>
             <td>{props.description}</td>
             <td>{props.type}</td>
@@ -18,7 +19,7 @@ const TableRow = (props) => {
 
 function mapStateToProps(state) {
     return ({
-        expensesClicked : state.expensesClicked
+        expensesClicked: state.expensesClicked
     })
 }
 

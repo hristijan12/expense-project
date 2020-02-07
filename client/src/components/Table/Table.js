@@ -3,11 +3,12 @@ import React from 'react'
 import './Table.css'
 import TabelRow from './TableRow';
 import TableTools from './TableTools'
+
 import store from '../../redux/store'
 import axios from 'axios'
 import { connect } from 'react-redux';
 import { getProducts } from '../../redux/ducks/getproducts'
-//import { expensesClicked } from '../../redux/ducks/productActions'
+
 
 class Table extends React.Component{
     constructor(props){

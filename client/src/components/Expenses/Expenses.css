@@ -2,7 +2,7 @@ html, body{
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     overflow-x: hidden;
     background: #E5EDF5;
             
@@ -114,45 +114,10 @@ html, body{
     align-items: center;
 }
 
-#empty-td{
-    height: 12px;
-    background-color: inherit;
 
-}
 
 .table{
-    font-size: 16px;
-    color: #404040;
-    width: 85%;
     margin-top: 20px;
-    text-align: center;
-    border-collapse: collapse;
-    justify-content: center;
-    
-}
-
-
-
-.table thead th{
-    padding-bottom: 15px;
-    background: #E5EDF5;
-   
-
-}
-
-.table thead{
-    border-bottom: 1px solid black ;
-}
-
-.table tbody .body-tr{
-    padding: 20px;
-    border-bottom: 5px solid #E5EDF5;
-    height: 50px;
-    background-color: #fff;
-}
-
-.table td a{
-    color: black;
 }
 
 .transparent-div{

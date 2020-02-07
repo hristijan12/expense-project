@@ -5,5 +5,36 @@
     text-align: center;
     border-collapse: collapse;
     justify-content: center;
+    margin-left: 100px;
     
 }
+
+
+
+.table thead th{
+    padding-bottom: 15px;
+        background: #E5EDF5;
+   
+
+}
+
+.table thead{
+    border-bottom: 1px solid black ;
+}
+.table tbody .body-tr{
+    padding: 20px;
+    border-bottom: 5px solid #E5EDF5;
+    height: 50px;
+    background-color: #fff;
+}
+
+.table td a{
+    color: black;
+}
+
+#empty-td{
+    height: 12px;
+    background-color: inherit;
+
+}
+
