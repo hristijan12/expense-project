@@ -11,3 +11,10 @@ export const expensesClicked = (expensesClicked) => {
         expensesClicked
     }
 }
+
+export const getTotalPrice = (price) => {
+    return {
+        type: "GET_TOTAL_PRICE",
+        payload: price
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react';
-
+import store from '../../redux/store'
+import { expensesClicked } from '../../redux/ducks/productActions'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './Expenses.css'
 
@@ -11,8 +13,16 @@ class Expenses extends React.Component {
             monthlyDisplay: false,
             yearlyDisplay: true,
             active: true,
-
+            expensesClicked: false
         };
+    }
+
+    expensesClicked = () => {
+        store.dispatch(expensesClicked(!this.state.expensesClicked))
+    }
+
+    productsClicked = () => {
+        store.dispatch(expensesClicked(this.state.expensesClicked))
     }
 
     monthlySelect = () => {
@@ -40,15 +50,15 @@ class Expenses extends React.Component {
                             onClick={this.yearlySelect}>Yearly</button></Link>
 
                         <div className="option-select-div">
-                            {/* {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose Month</label> : <label htmlFor="year-select"></label>}
-                            {this.state.monthlyDisplay ? yearMonthly : yearly} */}
+                            {/* {this.state.monthlyDisplay ? <label htmlFor="month-select">Choose Month</label> : <label htmlFor="year-select"></label>} */}
+                            {/* {this.state.monthlyDisplay ? yearMonthly : yearly}  */}
                         </div>
                     </div>
                 </div>
                 <this.props.table />
 
                 <div className="transparent-div">
-                    <p>Total spent: </p>
+                    <p>Total spent: <span>{this.props.totalPrice}</span> den. </p>
                 </div>
 
 
@@ -58,4 +68,10 @@ class Expenses extends React.Component {
     }
 }
 
-export default Expenses
+function mapStateToProps(state){
+    return{
+        totalPrice: state.totalPrice
+    }
+}
+
+export default connect (mapStateToProps)(Expenses)

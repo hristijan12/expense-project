@@ -3,13 +3,12 @@
     background: transparent;
     border: 2px solid;
     border-radius: 5px;
-    border-color: #576574;
     font-weight: bold;
-    color: #576574;
+    color: #1DD1A1;
 }
 
 
-.active-nav-btn {
-    border-color: #1DD1A1;
-    color: #1DD1A1;
+.active {
+    color: #576574;
+    border-color: #576574;
 }

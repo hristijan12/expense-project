@@ -1,24 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 import '../Products/Products.css'
-
-
-
-
-
+import { getProducts } from '../../redux/ducks/getproducts'
+import store from '../../redux/store'
 //products
 class Products extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            products: []
+            filterOption: null
         }
     }
 
+    componentDidUpdate() {
+        if(this.state.filterOption !== null) {
+            axios.get(`http://localhost:8000/api/v1/products/?sort=${this.state.filterOption}`,
+                {
+                    headers: {
+                        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+                    }
+                }
+            )
+            .then(res => {
+                store.dispatch(getProducts(res.data));
 
-  
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+    }
+    
+    filterHandler = (event) => {
+        this.setState({ filterOption: event.target.value })
+
+    }
 
     render(){
         console.log(this.props)
@@ -29,11 +47,11 @@ class Products extends React.Component{
                 <div className="products-div">
                     <h3>Products</h3>
                     <label htmlor="sort">Filter by:
-                        <select name="sort" id="sort">
-                            <option>First Purchase</option>
-                            <option>Last Purchase</option>
-                            <option>Highest Price</option>
-                            <option>Lowest Price</option>
+                        <select name="sort" id="sort" onChange={this.filterHandler}>
+                            <option value="date:desc">First Purchase</option>
+                            <option value="date:asc">Last Purchase</option>
+                            <option value="price:desc">Highest Price</option>
+                            <option value="price:asc">Lowest Price</option>
                         </select>            
                     </label>
                 </div>        
