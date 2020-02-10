@@ -21,6 +21,7 @@ class App extends Component{
           <Route path='/products' render={() => <Products header={Header} table={Table}/>} />
           <Route path='/expenses' render={() => <Expenses header={Header} table={Table}/>} />
           <Route path='/newproduct' render={() => <NewProduct header={Header} />} />
+          <Route path='/edit-product' render={() => <NewProduct header={Header}/>} />
         </Switch>
       </Router>
     )

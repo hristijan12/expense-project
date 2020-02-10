@@ -3,6 +3,10 @@ const initState = {
     products: [],
     expensesClicked: false,
     totalPrice: '',
+    editProductClicked: '',
+    productToEdit: '',
+    tableUpdated: false,
+
 
    
 }
@@ -18,7 +22,16 @@ export function reducer(state = initState, action){
         case "GET_TOTAL_PRICE": {
             return { ...state, totalPrice: action.payload }
         }
+        case "EDIT_PRODUCT": {
+            return { ...state, productToEdit: action.product }
+        }
 
+        case "EDIT_PRODUCT_CLICKED": {
+            return { ...state, editProductClicked: action.editProductClicked }
+        }
+        case "TABLE_UPDATED": {
+            return { ...state, tableUpdated: action.tableUpdated }
+        }
         case "EXPENSES_CLICKED": {
             return { ...state, expensesClicked: action.expensesClicked}
             }

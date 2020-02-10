@@ -5,11 +5,13 @@ import axios from 'axios'
 import '../Products/Products.css'
 import { getProducts } from '../../redux/ducks/getproducts'
 import store from '../../redux/store'
+import {editProductClicked} from '../../redux/ducks/productActions'
 //products
 class Products extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            clicked: false,
             filterOption: null
         }
     }
@@ -38,6 +40,11 @@ class Products extends React.Component{
 
     }
 
+    newProductHandler = () => {
+        this.setState({clicked: true})
+        store.dispatch(editProductClicked(this.state.clicked))
+    }
+
     render(){
         console.log(this.props)
         return(
@@ -58,7 +65,7 @@ class Products extends React.Component{
         
             </div>    
             <this.props.table />
-            <Link to='/newproduct'><button className="newproduct-button">NEW PRODUCT</button></Link>
+            <Link to='/newproduct'><button className="newproduct-button" onClick={this.newProductHandler}>NEW PRODUCT</button></Link>
             <script src="https://kit.fontawesome.com/c449c1f62a.js"></script>
             </React.Fragment>
         

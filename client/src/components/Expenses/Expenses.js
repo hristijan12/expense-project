@@ -70,7 +70,7 @@ class Expenses extends React.Component {
 
 function mapStateToProps(state){
     return{
-        totalPrice: state.totalPrice
+        totalPrice: state.reducer.totalPrice
     }
 }
 

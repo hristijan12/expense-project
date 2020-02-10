@@ -19,7 +19,7 @@ const TableRow = (props) => {
 
 function mapStateToProps(state) {
     return ({
-        expensesClicked: state.expensesClicked
+        expensesClicked: state.reducer.expensesClicked
     })
 }
 
