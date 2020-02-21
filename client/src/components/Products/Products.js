@@ -55,8 +55,8 @@ class Products extends React.Component{
                     <h3>Products</h3>
                     <label htmlor="sort">Filter by:
                         <select name="sort" id="sort" onChange={this.filterHandler}>
-                            <option value="date:desc">First Purchase</option>
-                            <option value="date:asc">Last Purchase</option>
+                            <option value="date:desc">Last Purchase</option>
+                            <option value="date:asc">First Purchase</option>
                             <option value="price:desc">Highest Price</option>
                             <option value="price:asc">Lowest Price</option>
                         </select>            
