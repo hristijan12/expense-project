@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import '../Products/Products.css'
-import { getProducts } from '../../redux/ducks/getproducts'
+import { getProducts } from '../../redux/ducks/productActions'
 import store from '../../redux/store'
 import {editProductClicked} from '../../redux/ducks/productActions'
 //products

@@ -1,3 +1,11 @@
+
+export const getProducts = (data) => {
+    return {
+        type: 'GET_PRODUCTS',
+        payload: data
+    }
+}
+
 export const deleteProduct = (product) => {
     return {
         type: "DELETE_PRODUCT",
@@ -11,6 +19,7 @@ export const expensesClicked = (expensesClicked) => {
         expensesClicked
     }
 }
+
 
 export const getTotalPrice = (price) => {
     return {

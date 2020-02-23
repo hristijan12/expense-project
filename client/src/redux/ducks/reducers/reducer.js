@@ -6,6 +6,7 @@ const initState = {
     editProductClicked: '',
     productToEdit: '',
     tableUpdated: false,
+    
 
 
    
@@ -13,6 +14,11 @@ const initState = {
 
 export function reducer(state = initState, action){
     switch (action.type){
+        case "GET_PRODUCTS": {
+            return {
+                ...state, products: action.payload
+            }
+        }
         case "DELETE_PRODUCT": {
             let newProducts = state.products.filter(product => {
                 return action.payload._id !== product._id
@@ -34,7 +40,8 @@ export function reducer(state = initState, action){
         }
         case "EXPENSES_CLICKED": {
             return { ...state, expensesClicked: action.expensesClicked}
-            }
+        }
+
             default:
                 return state 
         }   

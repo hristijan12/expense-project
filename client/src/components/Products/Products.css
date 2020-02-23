@@ -8,44 +8,6 @@ html, body{
             
 }
 
-/* .box-container{
-    background:  #E5EDF5;
-
-} */
-/* 
-.table{
-    font-size: 16px;
-    color: #404040;
-    width: 85%;
-    text-align: center;
-    border-collapse: collapse;
-    justify-content: center;
-    margin-left: 100px;
-    
-}
-
-
-
-.table thead th{
-    padding-bottom: 15px;
-    background: #E5EDF5;
-   
-
-}
-
-.table thead{
-    border-bottom: 1px solid black ;
-}
-.table tbody .body-tr{
-    padding: 20px;
-    border-bottom: 5px solid #E5EDF5;
-    height: 50px;
-    background-color: #fff;
-}
-
-.table td a{
-    color: black;
-} */
 
 #sort{
     height: 35px;
@@ -91,17 +53,7 @@ html, body{
     height: 60px;
 }
 
-.left-div{
-    display: flex;
-    align-items: center;
-    width: 50%;
 
-}
-.right-div{
-    display: flex;
-    align-items: center;
-    margin-right: 180px; 
-}
 
 .user-photo{
     border-radius: 50%;
@@ -125,18 +77,6 @@ html, body{
  
 }
 
-/* #products-button{
-    border-color: #1DD1A1;
-    color: #1DD1A1;
-    height: 35px;
-   
-    margin-left: 80px;
-}
-
-#expenses-button{
-    height: 35px;
-    margin-left: 10px;
-} */
 
 .newproduct-button{
     position: fixed;

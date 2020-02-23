@@ -11,7 +11,8 @@ class LoginCom extends React.Component{
         super(props)
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            userSigned: false,
         };
     }
 
@@ -21,13 +22,13 @@ class LoginCom extends React.Component{
         
 	};
 
-
     onLoginClick = () => {
-        this.props.loginUser(this.state);
+        this.props.loginUser(this.state)
+        this.setState({userSigned: true})
     }
     
     redirectToMain = () => {
-        if (this.props.userSigned) {
+        if (this.state.userSigned) {
             return <Redirect to='/products' />
         }
     }
@@ -73,7 +74,7 @@ const mapStateToProps = (state) => {
 	return {
 		loginLoading: state.loginReducer.loginLoading,
         loginFailed: state.loginReducer.loginFailed,
-        userSigned: state.loginReducer.userSigned,
+        // userSigned: state.loginReducer.userSigned,
         userName: state.userName
 	};
 };

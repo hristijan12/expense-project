@@ -1,8 +1,8 @@
 import React from 'react';
 import store from '../../redux/store'
 import axios from 'axios'
-import { expensesClicked } from '../../redux/ducks/productActions'
-import { getProducts } from '../../redux/ducks/getproducts'
+// import { expensesClicked } from '../../redux/ducks/productActions'
+import { getProducts } from '../../redux/ducks/productActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './Expenses.css'
@@ -14,8 +14,8 @@ class Expenses extends React.Component {
         this.state = {
             monthlyDisplay: false,
             yearlyDisplay: true,
-            active: true,
-            expensesClicked: false,
+            active: false,
+            // expensesClicked: false,
             yearlySelected: null,
             filter: null
         };
@@ -77,21 +77,21 @@ class Expenses extends React.Component {
         }
     }
 
-    expensesClicked = () => {
-        store.dispatch(expensesClicked(!this.state.expensesClicked))
-    }
+    // expensesClicked = () => {
+    //     store.dispatch(expensesClicked(!this.state.expensesClicked))
+    // }
 
-    productsClicked = () => {
-        store.dispatch(expensesClicked(this.state.expensesClicked))
-    }
+    // productsClicked = () => {
+    //     store.dispatch(expensesClicked(this.state.expensesClicked))
+    // }
 
     monthlySelect = () => {
-        this.setState({ yearlyDisplay: false, monthlyDisplay: true, active: false, filter: null, yearlySelected: 'all' })
+        this.setState({ yearlyDisplay: false, monthlyDisplay: true, active: true, filter: null, yearlySelected: 'all' })
 
     }
 
     yearlySelect = () => {
-        this.setState({ monthlyDisplay: false, yearlyDisplay: true, active: true, filter: null, yearlySelected: 'all' })
+        this.setState({ monthlyDisplay: false, yearlyDisplay: true, active: false, filter: null, yearlySelected: 'all' })
     }
 
     yearlySelectHandler = (event) => {

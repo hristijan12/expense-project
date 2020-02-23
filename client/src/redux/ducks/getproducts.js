@@ -1,22 +1,22 @@
-// constants
-const GETPRODUCTS_SUCCESS = "GETPRODUCTS_SUCCESS";
-const GETPRODUCTS_FAILED = "GETPRODUCTS_FAILED";
-const GETPRODUCTS_LOADING = "GETPRODUCTS_LOADING";
+// // constants
+// const GETPRODUCTS_SUCCESS = "GETPRODUCTS_SUCCESS";
+// const GETPRODUCTS_FAILED = "GETPRODUCTS_FAILED";
+// const GETPRODUCTS_LOADING = "GETPRODUCTS_LOADING";
 
-// initial state
-const initialState = {
-    productsData: [],
-    productsLoading: false,
-    productsFailed: false
-};
+// // initial state
+// const initialState = {
+//     productsData: [],
+//     productsLoading: false,
+//     productsFailed: false
+// };
 
-export const getProducts = (data) => {
-    console.log(data)
-      return {
-          type: GETPRODUCTS_SUCCESS,
-          payload: data
-      }
-    }
+// export const getProducts = (data) => {
+//     console.log(data)
+//       return {
+//           type: GETPRODUCTS_SUCCESS,
+//           payload: data
+//       }
+//     }
     
 
 //thunk action
@@ -53,45 +53,45 @@ export const getProducts = (data) => {
 // }
 
 //actions
-export const getProductsLoading = () => {
-    return {
-        type: GETPRODUCTS_LOADING
-    }
-}
+// export const getProductsLoading = () => {
+//     return {
+//         type: GETPRODUCTS_LOADING
+//     }
+// }
 
-export const getProductsSuccess = (data) => {
-    console.log(data)
-    return {
-        type: GETPRODUCTS_SUCCESS,
-        payload: data
-    }
-}
+// export const getProductsSuccess = (data) => {
+//     console.log(data)
+//     return {
+//         type: GETPRODUCTS_SUCCESS,
+//         payload: data
+//     }
+// }
 
-export const getProductsFailed = () => {
-    return {
-        type: GETPRODUCTS_FAILED
-    }
-}
+// export const getProductsFailed = () => {
+//     return {
+//         type: GETPRODUCTS_FAILED
+//     }
+// }
 
-// reducer
-export const getProductsReducer = (state = initialState, action) => {
-    console.log(state)
-    switch(action.type) {
-        case GETPRODUCTS_SUCCESS:
-            console.log(action.payload)
-            return {...state, productsLoading: false, productsFailed: false, productsData: action.payload};
+// // reducer
+// export const getProductsReducer = (state = initialState, action) => {
+//     console.log(state)
+//     switch(action.type) {
+//         case GETPRODUCTS_SUCCESS:
+//             console.log(action.payload)
+//             return {...state, productsLoading: false, productsFailed: false, productsData: action.payload};
         
-        case GETPRODUCTS_FAILED:
-            return {...state, productsLoading: false, productsFailed: true};
+//         case GETPRODUCTS_FAILED:
+//             return {...state, productsLoading: false, productsFailed: true};
         
-        case GETPRODUCTS_LOADING:
-            return {...state, productsLoading: true, productsFailed: false};
+//         case GETPRODUCTS_LOADING:
+//             return {...state, productsLoading: true, productsFailed: false};
        
-        default: 
-            return state;
+//         default: 
+//             return state;
         
-    }
-}
+//     }
+// }
 
 
 

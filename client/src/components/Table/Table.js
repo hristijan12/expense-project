@@ -7,8 +7,7 @@ import Alert from '../Alert/Alert'
 import store from '../../redux/store'
 import axios from 'axios'
 import { connect } from 'react-redux';
-import { getProducts } from '../../redux/ducks/getproducts'
-import { deleteProduct, getTotalPrice, editProduct, editProductClicked, tableUpdated } from '../../redux/ducks/productActions'
+import { getProducts, deleteProduct, getTotalPrice, editProduct, editProductClicked, tableUpdated } from '../../redux/ducks/productActions'
 
 
 class Table extends React.Component{
@@ -24,7 +23,9 @@ class Table extends React.Component{
 
 
     componentDidMount() {
-        if (this.props.products) {
+        this.props.getProducts();
+        if (this.props.products){
+            console.log(this.props.products)
         axios.get("http://localhost:8000/api/v1/products/",
         {
             headers: {
@@ -65,6 +66,11 @@ class Table extends React.Component{
                     })
         }
     }
+
+
+    hideAlert = () => {
+        this.setState({ alertShow: false })
+    }
     editProduct = (product) => {
         const clicked = !this.state.editProductClicked
         store.dispatch(editProduct(product));
@@ -89,9 +95,7 @@ class Table extends React.Component{
             })
     }
 
-    hideAlert = () => {
-        this.setState({ alertShow: false })
-    }
+
 
     deleteProductHandler = (product) => {
         this.setState({ product: product })
@@ -102,8 +106,10 @@ class Table extends React.Component{
 
 
 
-        render() {  
-            const trs = this.props.products.map((product, i) => {
+        render() {  let trs = null;
+            if (this.props.products){
+                console.log(this.props.products)
+            trs = this.props.products.map((product, i) => {
                 return (<TableRow key={product + i} name={product.name}
                     deleteProduct={() => this.deleteProductHandler(product)}
                     editProduct={() => this.editProduct(product)}
@@ -113,7 +119,7 @@ class Table extends React.Component{
                     price={product.price}
                     tableTools={TableTools}/>)
             })
-
+        }
             let alert = null;
             if (this.state.alertShow) {
                 alert = <Alert hide={this.hideAlert}
@@ -154,10 +160,18 @@ class Table extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        products: state.getProductsReducer.productsData,
+        products: state.reducer.products,
         expensesClicked: state.reducer.expensesClicked,
         tableUpdated: state.reducer.tableUpdated
     }
 }   
 
-export default connect(mapStateToProps)(Table)
+function mapDispatchToProps(dispatch) {
+    return {
+        getProducts: () => {
+            dispatch(getProducts())
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Table)

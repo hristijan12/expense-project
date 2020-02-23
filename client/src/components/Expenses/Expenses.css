@@ -14,31 +14,8 @@ html, body{
     height: 60px;
 }
 
-.left-div{
-    display: flex;
-    align-items: center;
-    width: 50%;
-
-}
-.right-div{
-    display: flex;
-    align-items: center;
-    margin-right: 180px; 
-}
 
 
-#products-button{
-    /* border-color: #1DD1A1;
-    color: #1DD1A1; */
-    height: 35px;
-   
-    margin-left: 80px;
-}
-
-#expenses-button{
-    height: 35px;
-    margin-left: 10px;
-}
 
 .user-photo{
     border-radius: 50%;
@@ -54,7 +31,7 @@ html, body{
 .select-btns {
     font-size: 15px;
     font-weight: bold;
-    background-color: #C9E5DD;
+    background: #1DD1A1;
     color: #fff;
     border-style: none;
     border-radius: 5px;
@@ -65,7 +42,8 @@ html, body{
 }
 
 .active-btn {
-    background: #1DD1A1;
+    background-color: #C9E5DD;
+    
 }
 
  

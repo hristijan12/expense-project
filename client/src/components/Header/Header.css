@@ -5,10 +5,58 @@
     border-radius: 5px;
     font-weight: bold;
     color: #1DD1A1;
-}
+    border-color: #1DD1A1; 
+} 
 
 
-.active {
+ .active {
     color: #576574;
     border-color: #576574;
+
+} 
+
+.left-div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
 }
+.right-div{
+    display: flex;
+    align-items: center;
+    margin-right: 180px; 
+}
+
+#products-button{
+    /* border-color: #1DD1A1;
+    color: #1DD1A1; */
+    height: 35px;
+   
+    margin-left: 80px;
+}
+
+#expenses-button{
+    height: 35px;
+    margin-left: 10px;
+}
+
+/* .btn-links {
+    cursor: pointer;
+    border: 1.5px solid #1DD1A1;
+    color: #1DD1A1;
+    background-color: white;
+    min-width: 14%;
+    text-transform: uppercase;
+    padding: 12px 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    background:transparent;
+    text-decoration: none;
+    height: 50px;
+}
+.active {
+    background-color: white;
+    background:transparent;
+    color: #576574;
+    border-color: #576574;
+} */

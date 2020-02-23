@@ -13,17 +13,6 @@ html,body{
     height: 60px;
 }
 
-.left-div{
-    display: flex;
-    align-items: center;
-    width: 50%;
-
-}
-.right-div{
-    display: flex;
-    align-items: center;
-    margin-right: 180px; 
-}
 
 .user-photo{
     border-radius: 50%;

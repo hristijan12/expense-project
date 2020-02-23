@@ -13,7 +13,7 @@ const alert = (props) => {
             <div id="alert-buttons">
                 <button className="alert-btn" id="cancel-alert-btn" onClick={props.hide}
                 >CANCEL</button>
-                <button className="alert-btn" id="delete-alert-btn" onClick={props.delete}
+                <button className="alert-btn" id="delete-alert-btn" onClick={props.delete} 
                 >DELETE</button>
             </div>
         </div>

@@ -1,18 +1,18 @@
 import React from 'react';
-//import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import foo from '../../assets/images/images (1).jpg'
 import './Header.css'
 import { connect } from 'react-redux'
-import { expensesClicked } from '../../redux/ducks/productActions'
-import store from '../../redux/store'
+// import { expensesClicked } from '../../redux/ducks/productActions'
+// import store from '../../redux/store'
 
 class Header extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            expensesClicked: false,
-            active: true,
+            // expensesClicked: false,
+            toggle: false,
             name: this.props.userName   
 
         }
@@ -31,30 +31,23 @@ class Header extends React.Component{
 
 
     expensesClicked = () => {
-        store.dispatch(expensesClicked(!this.state.expensesClicked))
+        this.setState({toggle: true})
     }
 
     productsClicked = () => {
-        store.dispatch(expensesClicked(this.state.expensesClicked))
+        this.setState({toggle: false})
     }
 
-    // productsClicked = () => {
-    //     this.setState({expensesClicked:false, productsClicked:true, active: !this.state.active})
-    // }
-
-    // expensesClicked = () => {
-    //     this.setState({productsClicked: false, expensesClicked: true, active: this.state.active})
-    // }
 
     render() {
         return (
             <React.Fragment>
-                 {/* {!localStorage.getItem('jwt') ? <Redirect to='/' /> : null} */}
+                   {!localStorage.getItem('jwt') ? <Redirect to='/' /> : null} 
                 <div className="nav">
                     <div className="left-div">
-                        <Link to='/products'><button className="nav-btns" onClick={this.productsClicked} id="products-button">PRODUCTS</button></Link>
-                        <Link to='/expenses'><button className="nav-btns" onClick={this.expensesClicked} id="expenses-button">EXPENSES</button></Link>
-                    </div>    
+                        <Link to='/products'><button className={!this.state.toggle ? 'nav-btns' : 'active nav-btns'} onClick={this.productsClicked} id="products-button">PRODUCTS</button></Link>
+                        <Link to='/expenses'><button className={this.state.toggle ? 'nav-btns' : 'active nav-btns'} onClick={this.expensesClicked} id="expenses-button">EXPENSES</button></Link>
+                    </div>  
             
                     <div className="right-div">  
                         <img src={foo} alt="profile" className="user-photo"/><a href="/"className="user-name" onClick={this.signOut}>{this.state.name}</a>
@@ -69,7 +62,7 @@ class Header extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        userName: state.userName
+        userName: state.loginReducer.userName
     }
 }
 
