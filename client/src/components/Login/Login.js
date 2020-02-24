@@ -29,7 +29,7 @@ class LoginCom extends React.Component{
     
     redirectToMain = () => {
         if (this.state.userSigned) {
-            return <Redirect to='/expenses' />
+            return <Redirect to='/products' />
         }
     }
 
