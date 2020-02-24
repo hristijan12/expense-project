@@ -30,13 +30,13 @@ class Header extends React.Component{
     
 
 
-    expensesClicked = () => {
-        this.setState({toggle: true})
-    }
+    // expensesClicked = () => {
+    //     this.setState({toggle: true})
+    // }
 
-    productsClicked = () => {
-        this.setState({toggle: false})
-    }
+    // productsClicked = () => {
+    //     this.setState({toggle: false})
+    // }
 
 
     render() {

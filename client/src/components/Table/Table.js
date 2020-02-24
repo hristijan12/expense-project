@@ -26,7 +26,7 @@ class Table extends React.Component{
         this.props.getProducts();
         if (this.props.products){
             console.log(this.props.products)
-        axios.get("http://localhost:8000/api/v1/products/",
+        axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
         {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -50,7 +50,7 @@ class Table extends React.Component{
     }
       componentDidUpdate() {
         if (this.props.tableUpdated) {
-                axios.get("http://localhost:8000/api/v1/products/",
+                axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
                     {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -106,7 +106,8 @@ class Table extends React.Component{
 
 
 
-        render() {  let trs = null;
+        render() {  
+            let trs = null;
             if (this.props.products){
                 console.log(this.props.products)
             trs = this.props.products.map((product, i) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import {loginUser} from '../../redux/ducks/login';
 import {Link} from 'react-router-dom';
 import './shared.css';
@@ -17,24 +16,24 @@ class LoginCom extends React.Component{
     }
 
 
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-        
-	};
 
     onLoginClick = () => {
         this.props.loginUser(this.state)
         this.setState({userSigned: true})
     }
+
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+        
+    };
     
     redirectToMain = () => {
         if (this.state.userSigned) {
-            return <Redirect to='/products' />
+            return <Redirect to='/expenses' />
         }
     }
 
     render() {
-        console.log(this.props)
         return(
         <React.Fragment>
             {this.redirectToMain()}
