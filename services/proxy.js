@@ -16,7 +16,7 @@ api.all('/api/v1/products/*', (req, res) => {
 });
 
 api.all('/*', (req, res) => {
-    apiProxy.web(req, res, {target: 'http://localhost:8002'});
+    apiProxy.web(req, res, {target: 'http://localhost:8083'});
 });
 
 api.listen(process.env.PORT, err => {
