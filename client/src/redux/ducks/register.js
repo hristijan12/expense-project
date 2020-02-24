@@ -17,7 +17,7 @@ export const registerUser = (data) => {
     return (dispatch) => {
         dispatch(registerUserLoading());
         fetch(
-            'http://localhost:8001/api/v1/auth/register',
+            'https://young-bastion-52459.herokuapp.com/api/v1/auth/register',
             {
                 'method': 'POST',
                 'body': JSON.stringify(data),

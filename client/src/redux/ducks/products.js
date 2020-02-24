@@ -18,7 +18,7 @@ export const addProduct = (data) => {
     return (dispatch) => {
         dispatch(addProductLoading());
         fetch(
-            'http://localhost:8000/api/v1/products/', 
+            'https://young-bastion-52459.herokuapp.com/api/v1/products/', 
             {
                 'method': 'POST',
                 'body': JSON.stringify(data),
