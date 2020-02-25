@@ -25,7 +25,7 @@ class Login extends React.Component{
     logIn = (event) => {
         localStorage.clear()
         event.preventDefault()
-        axios.post('http://localhost:8001/api/v1/auth/login',
+        axios.post('https://young-bastion-52459.herokuapp.com/api/v1/auth/login',
         {
             email: this.state.email,
             password: this.state.password

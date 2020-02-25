@@ -40,7 +40,7 @@ class NewProductCom extends React.Component{
             event.preventDefault()
         } else {
             store.dispatch(tableUpdated(!this.state.tableUpdated))
-            axios.put(`http://localhost:8000/api/v1/products/${this.props.productToEdit._id}`,
+            axios.put(`https://young-bastion-52459.herokuapp.com/api/v1/products/${this.props.productToEdit._id}`,
                 {
                     name: this.state.name,
                     description: this.state.description,

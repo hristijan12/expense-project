@@ -24,7 +24,7 @@ class Table extends React.Component{
 
     componentDidMount() {
         if (this.props.products){
-            axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
+            axios.get("https://young-bastion-52459.herokuapp.com/api/v1/products/?sort=date:desc",
             {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -46,7 +46,7 @@ class Table extends React.Component{
 
       componentDidUpdate() {
         if (this.props.tableUpdated) {
-                axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
+                axios.get("https://young-bastion-52459.herokuapp.com/api/v1/products/?sort=date:desc",
                     {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -76,7 +76,7 @@ class Table extends React.Component{
     
       deleteProduct = (product, productID) => {
         this.setState({ alertShow: false })
-        axios.delete(`http://localhost:8000/api/v1/products/${productID}`,
+        axios.delete(`https://young-bastion-52459.herokuapp.com/api/v1/products/${productID}`,
             {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
