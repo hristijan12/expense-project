@@ -4,17 +4,17 @@ import './Table.css'
 import TableRow from './TableRow';
 import TableTools from './TableTools'
 import Alert from '../Alert/Alert'
+
 import store from '../../redux/store'
 import axios from 'axios'
 import { connect } from 'react-redux';
-import { getProducts, deleteProduct, getTotalPrice, editProduct, editProductClicked, tableUpdated } from '../../redux/ducks/productActions'
+import { getProducts, deleteProduct, getTotalPrice, editProduct, editProductClicked, tableUpdated } from '../../redux/ducks/actions/productActions'
 
 
 class Table extends React.Component{
     constructor(props){
         super(props)
         this.state = {  
-            // products: [],
             product: null,
             alertShow: false,
             editProductClicked: false
@@ -23,31 +23,27 @@ class Table extends React.Component{
 
 
     componentDidMount() {
-        this.props.getProducts();
         if (this.props.products){
-            console.log(this.props.products)
-        axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
-        {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+            axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
+            {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
             }
-        })
-        .then(res => {
-            console.log(res)
-            console.log("entered then in get")
-            store.dispatch(getProducts(res.data));
-            let totalPrice = 0;
-            for (let i = 0; i < res.data.length; i++) {
-                totalPrice += parseInt(res.data[i].price)
-            }
-            store.dispatch(getTotalPrice(totalPrice));
-            console.log(totalPrice)
-        })
-        .catch(err => {
-            console.log(err);
-        })         
-      }
+            })
+                .then(res => {
+                    store.dispatch(getProducts(res.data));
+                    let totalPrice = 0;
+                        for (let i = 0; i < res.data.length; i++) {
+                        totalPrice += parseInt(res.data[i].price)
+                    }
+                store.dispatch(getTotalPrice(totalPrice));
+            })
+                .catch(err => {
+                    console.log(err);
+            })         
+       }
     }
+
       componentDidUpdate() {
         if (this.props.tableUpdated) {
                 axios.get("http://localhost:8000/api/v1/products/?sort=date:desc",
@@ -87,7 +83,6 @@ class Table extends React.Component{
                 }
             })
             .then(res => {
-                console.log(res)
                 store.dispatch(deleteProduct(product))
             })
             .catch(err => {
@@ -104,13 +99,10 @@ class Table extends React.Component{
     }
     
 
-
-
         render() {  
             let trs = null;
-            if (this.props.products){
-                console.log(this.props.products)
-            trs = this.props.products.map((product, i) => {
+                if (this.props.products){
+                trs = this.props.products.map((product, i) => {
                 return (<TableRow key={product + i} name={product.name}
                     deleteProduct={() => this.deleteProductHandler(product)}
                     editProduct={() => this.editProduct(product)}
@@ -122,16 +114,14 @@ class Table extends React.Component{
             })
         }
             let alert = null;
-            if (this.state.alertShow) {
+                if (this.state.alertShow) {
                 alert = <Alert hide={this.hideAlert}
-                    delete={() => this.deleteProduct(this.state.product, this.state.product._id)}
-                />
+                    delete={() => this.deleteProduct(this.state.product, this.state.product._id)} />
             }
 
 
             return(
                 <React.Fragment>
-                    
                     <div className="table-div">
                         <table className="table">
                             <thead>
@@ -150,8 +140,7 @@ class Table extends React.Component{
                                 </tr>
                                 {trs}
                             </tbody>
-                        </table>
-                            
+                        </table>    
                     </div>
                     {alert}
                 </React.Fragment>

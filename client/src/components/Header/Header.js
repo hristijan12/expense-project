@@ -1,11 +1,14 @@
 import React from 'react';
+import './Header.css'
+import foo from '../../assets/images/images (1).jpg'
+
 import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import foo from '../../assets/images/images (1).jpg'
-import './Header.css'
 import { connect } from 'react-redux'
-import { expensesClicked } from '../../redux/ducks/productActions'
 import store from '../../redux/store'
+
+import { expensesClicked } from '../../redux/ducks/actions/productActions'
+
 
 class Header extends React.Component{
     constructor(props) {
@@ -24,7 +27,6 @@ class Header extends React.Component{
     }
 
     signOut = () => {
-        console.log("SIGN OUT CLICKED")
         localStorage.clear()
     }
 
@@ -36,15 +38,6 @@ class Header extends React.Component{
     productsClicked = () => {
         store.dispatch(expensesClicked(this.state.expensesClicked))
     }
-
-    // expensesClicked = () => {
-    //     this.setState({toggle: true})
-    // }
-
-    // productsClicked = () => {
-    //     this.setState({toggle: false})
-    // }
-
 
     render() {
         return (
@@ -61,7 +54,6 @@ class Header extends React.Component{
                        
                     </div>  
                 </div>     
-    
             </React.Fragment>
         )
     }
@@ -69,7 +61,7 @@ class Header extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        userName: state.loginReducer.userName
+        userName: state.userName
     }
 }
 

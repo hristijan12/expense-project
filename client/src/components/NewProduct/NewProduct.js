@@ -1,11 +1,14 @@
 import React from 'react';
+import '../NewProduct/NewProduct.css';
+
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import store from '../../redux/store'
 import axios from 'axios'
+
 import {addProduct} from '../../redux/ducks/products';
-import {tableUpdated} from '../../redux/ducks/productActions';
-import '../NewProduct/NewProduct.css';
+import {tableUpdated} from '../../redux/ducks/actions/productActions';
+
 
 
 class NewProductCom extends React.Component{
@@ -103,6 +106,7 @@ class NewProductCom extends React.Component{
 
                     </div>
                     <div className="right2-div">
+                        <span><i id="plus-icon" className="fas fa-plus-circle"></i></span>
                         {this.props.editProductClicked ? <p id='product-text'>You are editing a  product</p> : <p id='product-text'>You are creating a new product</p>}
                     </div>
                 </div>

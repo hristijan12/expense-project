@@ -1,27 +1,48 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {loginUser} from '../../redux/ducks/login';
 import {Link} from 'react-router-dom';
 import './shared.css';
 import {Redirect} from 'react-router-dom'
-
-class LoginCom extends React.Component{
+import axios from 'axios'
+import store from '../../redux/store'
+import { saveUserName } from '../../redux/ducks/actions/userAction'
+class Login extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             email: '',
             password: '',
             userSigned: false,
+            error: null
         };
     }
 
-    
 
-    onLoginClick = (prevState) => {
-        this.setState({userSigned: !prevState.userSigned})
-        this.props.loginUser(this.state)
+
+    componentDidMount() {
+        localStorage.clear()
     }
 
+    logIn = (event) => {
+        localStorage.clear()
+        event.preventDefault()
+        axios.post('http://localhost:8001/api/v1/auth/login',
+        {
+            email: this.state.email,
+            password: this.state.password
+        })
+        .then(res => {
+            localStorage.setItem('jwt', res.data.jwt);
+            localStorage.setItem('first_name', res.data.first_name);
+            localStorage.setItem('last_name', res.data.last_name);
+            const name = res.data.first_name + ' ' + res.data.last_name
+            store.dispatch(saveUserName(name))
+            this.setState({userSigned: true})
+        })
+        .catch(err => {
+            this.setState({ error: true})
+        })
+    }
+    
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
         
@@ -39,7 +60,7 @@ class LoginCom extends React.Component{
             {this.redirectToMain()}
             <div id="login">
                 <div className="box-container" id="login2">
-                <form>
+                <form >
                 <p className="input-container">
                     <label className="text-field-input">
                         Email
@@ -53,7 +74,7 @@ class LoginCom extends React.Component{
                     <input type="password" className="text-field" name="password" onChange={this.handleChange}/>
                     </label>
                 </p>
-                <button type="button" className="primary-button" onClick={this.onLoginClick}>Sign in</button>
+                <button type="button" className="primary-button" onClick={this.logIn}>Sign in</button>
 
 
                 </form>
@@ -68,23 +89,4 @@ class LoginCom extends React.Component{
 
 }
 
-const mapStateToProps = (state) => {
-    console.log(state)
-	return {
-		loginLoading: state.loginReducer.loginLoading,
-        loginFailed: state.loginReducer.loginFailed,
-        // userSigned: state.loginReducer.userSigned,
-        userName: state.userName
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		loginUser: (data, name) => {
-			return dispatch(loginUser(data, name))
-		}
-	}
-};
-
-const Login = connect(mapStateToProps, mapDispatchToProps)(LoginCom);
 export default Login

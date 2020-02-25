@@ -1,12 +1,12 @@
 import React from 'react';
-import store from '../../redux/store'
-import axios from 'axios'
-// import { expensesClicked } from '../../redux/ducks/productActions'
-import { getProducts } from '../../redux/ducks/productActions'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import './Expenses.css'
 
+import { Link } from 'react-router-dom'
+import store from '../../redux/store'
+import axios from 'axios'
+import { connect } from 'react-redux'
+
+import { getProducts } from '../../redux/ducks/actions/productActions'
 
 class Expenses extends React.Component {
     constructor(props) {
@@ -15,7 +15,6 @@ class Expenses extends React.Component {
             monthlyDisplay: false,
             yearlyDisplay: true,
             active: false,
-            // expensesClicked: false,
             yearlySelected: null,
             filter: null
         };
@@ -77,13 +76,6 @@ class Expenses extends React.Component {
         }
     }
 
-    // expensesClicked = () => {
-    //     store.dispatch(expensesClicked(!this.state.expensesClicked))
-    // }
-
-    // productsClicked = () => {
-    //     store.dispatch(expensesClicked(this.state.expensesClicked))
-    // }
 
     monthlySelect = () => {
         this.setState({ yearlyDisplay: false, monthlyDisplay: true, active: true, filter: null, yearlySelected: 'all' })
@@ -102,13 +94,13 @@ class Expenses extends React.Component {
     }
     render() {
 
-                let yearly =
+        let yearly = (
             <select name="year-select" className="month-select" onChange={this.yearlySelectHandler}>
                 <option defaultChecked value='all' > ALL</option>
                 {this.years.map((year, index) => {
                     return <option key={`year${index}`} value={year}>{year}</option>
                 })}
-            </select>;
+            </select>)
 
         
 
@@ -129,7 +121,6 @@ class Expenses extends React.Component {
         return (
             <React.Fragment>
                 <this.props.header />
-
                 <div className="products">
                     <div className="products-div">
                         <h3>Expenses</h3>
@@ -152,8 +143,6 @@ class Expenses extends React.Component {
                 <div className="transparent-div">
                     <p>Total spent: <span>{this.props.totalPrice}</span> den. </p>
                 </div>
-
-
 
             </React.Fragment>
         )

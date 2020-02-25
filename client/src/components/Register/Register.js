@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {registerUser} from '../../redux/ducks/register';
 import '../../assets/css/shared.css'
 import '../Register/Register.css'
+import { Link } from 'react-router-dom';
 
-// import {Redirect} from 'react-router-dom'
 
 class RegisterCom extends React.Component{
     constructor(props){
@@ -78,7 +78,7 @@ class RegisterCom extends React.Component{
 									<input type="password" className="text-field" name="password" onChange={this.handleChange}/>	
 								</label>
 							</p>
-							<button type="button" className="primary-button" onClick={this.onRegisterClick}>Register</button>
+							<Link to='/'><button type="button" className="primary-button" onClick={this.onRegisterClick}>Register</button></Link>
 						</form>
 					</div>
 					<div className="TextDiv" id="register-text">

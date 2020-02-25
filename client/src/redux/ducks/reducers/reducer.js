@@ -1,4 +1,3 @@
-
 const initState = {
     products: [],
     expensesClicked: false,
@@ -6,10 +5,7 @@ const initState = {
     editProductClicked: '',
     productToEdit: '',
     tableUpdated: false,
-    
-
-
-   
+    userName: '', 
 }
 
 export function reducer(state = initState, action){
@@ -37,6 +33,9 @@ export function reducer(state = initState, action){
         }
         case "TABLE_UPDATED": {
             return { ...state, tableUpdated: action.tableUpdated }
+        }
+        case "SAVE_USER_NAME": {
+            return { ...state, userName: action.userName }
         }
         case "EXPENSES_CLICKED": {
             return { ...state, expensesClicked: action.expensesClicked}

@@ -1,12 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import '../Products/Products.css'
+
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-import '../Products/Products.css'
-import { getProducts } from '../../redux/ducks/productActions'
 import store from '../../redux/store'
-import {editProductClicked} from '../../redux/ducks/productActions'
-//products
+
+import { getProducts } from '../../redux/ducks/actions/productActions'
+import { editProductClicked } from '../../redux/ducks/actions/productActions'
+
 class Products extends React.Component{
     constructor(props){
         super(props)
@@ -46,7 +47,6 @@ class Products extends React.Component{
     }
 
     render(){
-        console.log(this.props)
         return(
             <React.Fragment>
             <this.props.header/>
@@ -74,19 +74,5 @@ class Products extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => {
-	return {
-        products: state.data
-	};
-};
 
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-//         getProducts: (data) => {
-// 			return dispatch(getProducts(data))
-// 		}
-// 	}
-// }
-
-
-export default connect(mapStateToProps) (Products) ;
+export default Products

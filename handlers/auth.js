@@ -38,7 +38,7 @@ const register = (req, res) => {
     })
 }
 const login = (req, res) => {
-    mUsers.getUserPasswordByEmail(req.body.email)
+    mUsers.login(req.body.email)
     .then((data) => {
         bcrypt.compare(req.body.password, data.password, function(err, rez) {
             if(err){

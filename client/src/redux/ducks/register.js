@@ -13,7 +13,6 @@ const initialState = {
 
 // thunk action
 export const registerUser = (data) => {
-    console.log(data);
     return (dispatch) => {
         dispatch(registerUserLoading());
         fetch(
@@ -26,7 +25,6 @@ export const registerUser = (data) => {
                 }
             }
         ).then(res => {
-            // dispatch(registerUserSuccess(res));
             dispatch(registerUserSuccess(data));
             localStorage.setItem('first_name', res.data.first_name);
             localStorage.setItem('last_name', res.data.last_name);

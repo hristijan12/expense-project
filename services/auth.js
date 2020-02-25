@@ -10,17 +10,11 @@ var cors = require('cors');
 
 db.init(config.getConfig('db'));
 
-
-
 var api = express();
-// //////////////////////////
-// only for testing purposes
-// //////////////////////////
+
 var pub = path.join(__dirname, '..', 'public');
 api.use('/public', express.static(pub));
-// //////////////////////////
-// only for testing purposes
-// //////////////////////////
+
 api.use(bodyParser.json());
 api.use(cors());
 api.use(
@@ -34,16 +28,6 @@ api.use(
 
 api.post('/api/v1/auth/register', auth.register);
 api.post('/api/v1/auth/login', auth.login);
-
-
-
-// api.use(function (err, req, res, next) {
-//     if (err.name === 'UnauthorizedError') {
-//         res.status(401).send({message: 'Invalid token'});
-//     } else {
-//         next(err);
-//     }
-// });
 
 api.listen(8001, err => {
     if(err){

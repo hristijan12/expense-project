@@ -1,4 +1,3 @@
-
 // constants
 const PRODUCT_SUCCESS = "PRODUCT_SUCCESS";
 const PRODUCT_FAILED = "PRODUCT_FAILED";
@@ -14,7 +13,6 @@ const initialState = {
 
 // thunk action
 export const addProduct = (data) => {
-    console.log(data);
     return (dispatch) => {
         dispatch(addProductLoading());
         fetch(
