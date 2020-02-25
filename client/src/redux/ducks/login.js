@@ -40,7 +40,7 @@ export const loginUser = (data) => {
             const name = data.first_name + ' ' + data.last_name
             console.log(name)
             dispatch(saveUserName(name))
-            //localStorage.setItem('jwt', JSON.stringify(data));
+            // localStorage.setItem('jwt', JSON.stringify(data));
             console.log(data)
             dispatch(loginUserSuccess(data));
             dispatch(userLogged(data.signed))

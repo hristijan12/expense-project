@@ -15,11 +15,11 @@ class LoginCom extends React.Component{
         };
     }
 
+    
 
-
-    onLoginClick = () => {
+    onLoginClick = (prevState) => {
+        this.setState({userSigned: !prevState.userSigned})
         this.props.loginUser(this.state)
-        this.setState({userSigned: true})
     }
 
     handleChange = e => {
